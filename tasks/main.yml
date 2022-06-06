@@ -11,3 +11,11 @@
   args:
     creates: '{{playbook_dir}}//new_directory/requirements.txt'
     removes: '{{playbook_dir}}//new_directory/requirements.yml'
+
+- name: Rename the requirements file
+  delegate_to: localhost
+  command: cat '{{playbook_dir}}//new_directory/requirements.txt'
+      register: out
+
+    - name: Display Output
+      debug: var=out
