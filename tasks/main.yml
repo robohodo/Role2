@@ -14,8 +14,11 @@
 
 - name: Rename the requirements file
   delegate_to: localhost
-  command: cat '{{playbook_dir}}//new_directory/requirements.txt'
-    register: out
+  shell: cat '{{playbook_dir}}//new_directory/requirements.txt'
+  register: out
 
-    - name: Display Output
-      debug: var=out
+- name: Display Output
+  debug: var=out
+
+
+
