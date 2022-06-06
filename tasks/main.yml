@@ -1,2 +1,11 @@
 ---
 # tasks file for .
+
+- name: Copy the requirements file
+  delegate_to: localhost
+  copy: 
+    src: '{{playbook_dir}}//new_directory/requirements.yml'
+    dest: '{{playbook_dir}}//new_directory/requirements.txt'
+    mode: '0500'
+    creates: '{{playbook_dir}}//new_directory/requirements.txt'
+    removes: '{{playbook_dir}}//new_directory/requirements.yml'
